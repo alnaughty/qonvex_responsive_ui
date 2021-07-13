@@ -20,7 +20,7 @@ class YoutubeDrawer extends StatelessWidget {
       required this.menuIcon,
       required this.color});
 
-  late final Color _decidedColor = ColorChecker.check(color);
+  late final Color _decidedColor = QonvexColorChecker.check(color);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,9 @@ class YoutubeDrawer extends StatelessWidget {
             child: listData(context, _isWeb));
   }
 
-  Widget listData(context, bool isWeb) => Container(
+  Widget listData(context, bool isWeb) {
+    try {
+      return Container(
         color: color,
         child: ListView(
           children: [
@@ -61,20 +63,22 @@ class YoutubeDrawer extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-                    Expanded(child: appTitle)
+                    Expanded(child: Container(
+                      alignment: AlignmentDirectional.centerStart,
+                      child: appTitle,
+                    ))
                   ],
                 ),
               )
             },
             for (QonvexItem item in items) ...{
-              Tooltip(
-                message: "${item.title}",
-                child: MaterialButton(
+              if ((!isWeb || (isWeb && isToggled))) ...{
+                MaterialButton(
                   padding: EdgeInsets.symmetric(
                       horizontal: !isWeb || (isWeb && isToggled) ? 20 : 0,
                       vertical: 25),
                   onPressed: () {
-                    if(!isWeb){
+                    if (!isWeb) {
                       Navigator.of(context).pop(null);
                     }
                     onPressed(item.child);
@@ -100,9 +104,48 @@ class YoutubeDrawer extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              } else ...{
+                Tooltip(
+                  message: "${item.title}",
+                  child: MaterialButton(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: !isWeb || (isWeb && isToggled) ? 20 : 0,
+                        vertical: 25),
+                    onPressed: () {
+                      if (!isWeb) {
+                        Navigator.of(context).pop(null);
+                      }
+                      onPressed(item.child);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          item.icon,
+                          color: _decidedColor,
+                        ),
+                        if (!isWeb || (isWeb && isToggled)) ...{
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: Text(
+                              "${item.title}",
+                              style: TextStyle(color: _decidedColor),
+                            ),
+                          )
+                        }
+                      ],
+                    ),
+                  ),
+                )
+              }
             }
           ],
         ),
       );
+    } catch (e) {
+      throw e;
+    }
+  }
 }

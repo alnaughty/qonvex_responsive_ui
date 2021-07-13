@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class QonvexUISettings {
-  final Widget appLogo;
+  final ImageProvider appLogo;
   final List<Widget>? appHeaderActions;
   final IconData drawerIcon;
   final Color foregroundColor;

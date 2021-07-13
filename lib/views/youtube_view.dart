@@ -14,6 +14,12 @@ class YouTubeView extends StatefulWidget {
 }
 
 class _YouTubeViewState extends State<YouTubeView> {
+  Image logo(ImageProvider provider) {
+    return Image(
+      fit: BoxFit.fitHeight,
+        image: provider,
+    );
+  }
   late QonvexUISettings settings = widget.settings;
   late Widget _selectedChild = widget.items[0].child;
   final GlobalKey<ScaffoldState> _scaffoldState = new GlobalKey<ScaffoldState>();
@@ -37,7 +43,7 @@ class _YouTubeViewState extends State<YouTubeView> {
       });
     }
   }
-  late Color _decidedColor = ColorChecker.check(settings.foregroundColor);
+  late Color _decidedColor = QonvexColorChecker.check(settings.foregroundColor);
   @override
   Widget build(BuildContext context) {
     _size = MediaQuery.of(context).size;
@@ -81,17 +87,18 @@ class _YouTubeViewState extends State<YouTubeView> {
                 ),
               )
             }else if(_size.width >= 1300)...{
-              YoutubeDrawer(color: settings.foregroundColor, menuIcon: settings.drawerIcon,appTitle: settings.appLogo, isToggled: _size.width > 800 && _size.width < 1300 ? false : _isToggled,items: widget.items, onPressed: (Widget child){
+              YoutubeDrawer(color: settings.foregroundColor, menuIcon: settings.drawerIcon,appTitle: logo(settings.appLogo), isToggled: _size.width > 800 && _size.width < 1300 ? false : _isToggled,items: widget.items, onPressed: (Widget child){
                 setState(() => _selectedChild = child);
               }),
             },
             Expanded(child: _selectedChild)
           ],
         ),
-        drawer: _size.width > 1300 && kIsWeb ? null : YoutubeDrawer(color: settings.foregroundColor, menuIcon: settings.drawerIcon,appTitle: settings.appLogo, isToggled: _isToggled,items: widget.items, onPressed: (Widget child){
+        drawer: _size.width > 1300 && kIsWeb ? null : YoutubeDrawer(color: settings.foregroundColor, menuIcon: settings.drawerIcon,appTitle: logo(settings.appLogo), isToggled: _isToggled,items: widget.items, onPressed: (Widget child){
           setState(() => _selectedChild = child);
         }),
         appBar: AppBar(
+          toolbarHeight: 10,
           textTheme: TextTheme(
             caption: TextStyle(
               color: _decidedColor
@@ -100,7 +107,7 @@ class _YouTubeViewState extends State<YouTubeView> {
           iconTheme: IconThemeData(
             color: _decidedColor
           ),
-          title: settings.appLogo,
+          title: logo(settings.appLogo),
           centerTitle: false,
           backgroundColor: settings.foregroundColor,
           actions: settings.appHeaderActions,
