@@ -12,7 +12,10 @@ A Flutter package made to ease and lessen time to develop for something that has
 import 'package:qonvex_responsive_ui/qonvex_responsive_ui.dart';
 ```
 - import the package to your page
-
+###TYPES
+Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
+--- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
 ### Call
 ```dart
 QonvexResponsiveUi(
