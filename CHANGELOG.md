@@ -6,4 +6,5 @@
 ## 0.0.2
 
 * added example
-* provided documentation
+* finalize readme.md
+* added sample images on readme.md

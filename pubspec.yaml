@@ -1,6 +1,6 @@
 name: qonvex_responsive_ui
 description: A Flutter package made to ease and lessen time to develop for something that has the same main scheme with youtube and facebook and to achieve a responsive and vue like display.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/alnaughty/qonvex_responsive_ui.git
 
 environment:
