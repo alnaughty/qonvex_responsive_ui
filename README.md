@@ -14,9 +14,13 @@ import 'package:qonvex_responsive_ui/qonvex_responsive_ui.dart';
 - import the package to your page
 
 ###TYPES
-Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
-Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
+Type | Command |
+--- | --- |
+Youtube | QonvexUIType.youtube |
+Facebook | QonvexUIType.facebook |
+
+**NOTE:** Default type is youtube
+
 ### Call
 ```dart
 QonvexResponsiveUi(
@@ -28,7 +32,7 @@ QonvexResponsiveUi(
         appLogo: <YOUR IMAGE LOGO>,
         foregroundColor: <YOUR COLOR>,
       ),
-      type: QonvexUIType.youtube,
+      type: <Your Type>, ///if left null the default type is youtube
       items: [
         <REQUIRED QONVEXITEMs>
       ],
