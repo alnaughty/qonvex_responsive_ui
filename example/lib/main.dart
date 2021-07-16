@@ -34,10 +34,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return QonvexResponsiveUi(
       settings: QonvexUISettings(
         appHeaderActions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.search)),
-          IconButton(onPressed: (){}, icon: Icon(Icons.message))
+          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.message))
         ],
-        appLogo: NetworkImage("https://www.strunkmedia.com/wp-content/uploads/2018/05/bigstock-Print-163213010.png"),
+        appLogo: NetworkImage(
+            "https://www.strunkmedia.com/wp-content/uploads/2018/05/bigstock-Print-163213010.png"),
         foregroundColor: Colors.grey.shade100,
       ),
       type: QonvexUIType.youtube,

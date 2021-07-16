@@ -129,10 +129,14 @@ class _YouTubeViewState extends State<YouTubeView> {
                   setState(() => _selectedChild = child);
                 }),
         appBar: AppBar(
-          toolbarHeight: 10,
           textTheme: TextTheme(caption: TextStyle(color: _decidedColor)),
           iconTheme: IconThemeData(color: _decidedColor),
-          title: logo(settings.appLogo),
+          title: Container(
+            width: 120,
+            height: 40,
+            alignment: AlignmentDirectional.centerStart,
+            child: logo(settings.appLogo),
+          ),
           centerTitle: false,
           backgroundColor: settings.foregroundColor,
           actions: settings.appHeaderActions,

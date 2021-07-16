@@ -47,7 +47,7 @@ class YoutubeDrawer extends StatelessWidget {
               Container(
                 width: double.infinity,
                 height: 55,
-                padding: const EdgeInsets.only(right: 20, left: 10),
+                padding: const EdgeInsets.only(right: 20, left: 10,top: 10,bottom: 10),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [

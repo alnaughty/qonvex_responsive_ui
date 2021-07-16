@@ -50,7 +50,12 @@ class _FaceBookViewState extends State<FaceBookView>
               iconTheme: IconThemeData(color: mainColor),
               centerTitle: false,
               elevation: 0,
-              title: logo(settings.appLogo),
+              title: Container(
+                width: 120,
+                height: 40,
+                alignment: AlignmentDirectional.centerStart,
+                child: logo(settings.appLogo),
+              ),
               backgroundColor: settings.foregroundColor,
               actions: settings.appHeaderActions,
               bottom: PreferredSize(
@@ -80,6 +85,8 @@ class _FaceBookViewState extends State<FaceBookView>
                     Container(
                       width: 60.0 * 4,
                       constraints: BoxConstraints(maxWidth: 60.0 * 4),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      alignment: AlignmentDirectional.centerStart,
                       child: logo(settings.appLogo),
                     ),
                     Container(width: 700, height: 60, child: tabBar()),
