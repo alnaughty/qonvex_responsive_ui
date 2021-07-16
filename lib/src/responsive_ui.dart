@@ -5,19 +5,25 @@ import 'package:qonvex_responsive_ui/constants.dart';
 
 export 'package:qonvex_responsive_ui/class/settings.dart';
 export 'package:qonvex_responsive_ui/class/item.dart';
-class ResponsiveUi extends StatefulWidget {
+
+///This is the class that calls our main ui page
+class QonvexResponsiveUi extends StatefulWidget {
   final QonvexUIType type;
   final QonvexUISettings settings;
   final List<QonvexItem> items;
-  ResponsiveUi(
-      {Key? key, this.type = QonvexUIType.youtube, required this.settings, required this.items})
+
+  QonvexResponsiveUi(
+      {Key? key,
+      this.type = QonvexUIType.youtube,
+      required this.settings,
+      required this.items})
       : super(key: key);
 
   @override
-  ResponsiveUiState createState() => ResponsiveUiState();
+  QonvexResponsiveUiState createState() => QonvexResponsiveUiState();
 }
 
-class ResponsiveUiState extends State<ResponsiveUi> {
+class QonvexResponsiveUiState extends State<QonvexResponsiveUi> {
   GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
@@ -28,6 +34,3 @@ class ResponsiveUiState extends State<ResponsiveUi> {
     );
   }
 }
-
-
-

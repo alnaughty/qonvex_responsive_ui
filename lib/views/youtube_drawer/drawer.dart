@@ -63,7 +63,8 @@ class YoutubeDrawer extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-                    Expanded(child: Container(
+                    Expanded(
+                        child: Container(
                       alignment: AlignmentDirectional.centerStart,
                       child: appTitle,
                     ))
